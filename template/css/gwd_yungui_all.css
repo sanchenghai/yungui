@@ -78,7 +78,7 @@ input, button, select, textarea{
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-.col-gwd-5-20, .col-gwd-3-40, .col-gwd-3-5, .col-gwd-3-55, .col-gwd-3-33, .col-gwd-2-61, .col-gwd-2-39, .col-gwd-4-19, .col-gwd-4-31{
+.col-gwd-5-20, .col-gwd-3-40, .col-gwd-3-5, .col-gwd-3-55, .col-gwd-3-33, .col-gwd-2-61, .col-gwd-2-39, .col-gwd-4-19, .col-gwd-4-31, .col-gwd-2-50{
   min-height: 1px;
   float: left;
   position: relative;
@@ -109,6 +109,9 @@ input, button, select, textarea{
 }
 .col-gwd-4-31{
   width: 31%;
+}
+.col-gwd-2-50{
+  width: 50%;
 }
 .gwd-img-block-center{
   max-width: 100%;
@@ -175,6 +178,15 @@ hr{
   z-index: 99;
   display: none;
   cursor: pointer;
+}
+.mask{
+  display: none;
+  width: 100%;
+  height: 200px;
+  background-color: rgba(200,200,200,0.5);
+  position: fixed;
+  top: 0;
+  z-index: 50;
 }
 @media (min-width: 768px) {
   .container {
@@ -256,30 +268,32 @@ hr{
 #gwd_classify_shadow{
   height: 62px;
 }
-#gwd_classify ul{
+#gwd_classify>ul{
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
   width: 100%;
   overflow: hidden;
+  background-color: #fff;
   position: fixed;
   top: 2px;
+  z-index: 99;
 }
-#gwd_classify ul li{
+#gwd_classify>ul li{
   float: left;
   width: 33.33%;
   padding: 12px 0;
 }
-#gwd_classify ul li a{
+#gwd_classify>ul li a{
   display: block;
   position: relative;
 }
-#gwd_classify ul li a>div{
+#gwd_classify>ul li a>div{
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
-#gwd_classify ul li a p{
+#gwd_classify>ul li a p{
   display: inline-block;
   text-align: right;
   max-width: 80%;
@@ -296,8 +310,100 @@ hr{
   position: relative;
   margin-left: 4px;
 }
+.heisanjiaoactive{
+  border-top: 6px solid #fff;
+  border-bottom: 6px solid #666;
+  top: -7px;
+}
 #gcfl, #gcsc{
   border-right: 1px solid #eee;
+}
+#gcfldiv, #gcscdiv, #gcjgdiv{
+  display: none;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  top: 52px;
+  z-index: 99;
+}
+#gcfldiv ul, #gcscdiv ul{
+  height: 260px;
+  overflow: auto;
+}
+#gcjgdiv ul{
+  height: 100px;
+  overflow: auto;
+}
+#gcfldiv ul a, #gcscdiv ul a, #gcjgdiv ul a{
+  display: block;
+  text-align: center;
+}
+.leftul{
+  background-color: #fff;
+}
+.leftul a.active{
+  background-color: rgb(247,247,247);
+}
+.name{
+  display: inline-block;
+  width: 66px;
+  text-align: left;
+  overflow: hidden;
+  margin: 5px 0;
+}
+.number{
+  display: inline-block;
+  width: 66px;
+  text-align: right;
+  overflow: hidden;
+  margin: 5px 0;
+}
+.number>span{
+  padding: 1px 6px;
+  color: #fff;
+  background-color: rgb(221,221,221);
+  border-radius: 6px;
+}
+.rightul{
+  display: none;
+  background-color:rgb(247,247,247);
+}
+.rightul a.active{
+  background-color: rgb(221,221,221);
+}
+#gcscdiv ul a{
+  width: 70%;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  margin: 10px auto;
+  padding: 9px 0;
+}
+#gcscdiv ul a.active{
+  border-color: #ea3333;
+}
+#gcscdiv ul a span{
+  padding-left: 6px;
+}
+.timeleft{
+  display: inline-block;
+  width: 106px;
+  text-align: left;
+  overflow: hidden;
+  margin: 5px 0;
+}
+.timeright{
+  display: inline-block;
+  width: 26px;
+  text-align: left;
+  overflow: hidden;
+  margin: 5px 0;
+}
+.timedetail{
+  display: inline-block;
+  width: 80%;
+  text-align: left;
+  overflow: hidden;
+  margin: 5px 0;
 }
 #gwd_index .container{
   padding: 0 10px;
@@ -351,7 +457,7 @@ hr{
   #gwd_classify_shadow{
     height: 70px;
   }
-  #gwd_classify ul li{
+  #gwd_classify>ul li{
     padding: 14px 0;
   }
   .heisanjiao{
@@ -387,7 +493,7 @@ hr{
   #gwd_classify_shadow{
     height: 86px;
   }
-  #gwd_classify ul li{
+  #gwd_classify>ul li{
     padding: 16px 0;
   }
   .heisanjiao{
@@ -420,7 +526,7 @@ hr{
   #gwd_classify_shadow{
     height: 90px;
   }
-  #gwd_classify ul li{
+  #gwd_classify>ul li{
     padding: 18px 0;
   }
   .heisanjiao{
@@ -453,7 +559,7 @@ hr{
   #gwd_classify_shadow{
     height: 96px;
   }
-  #gwd_classify ul li{
+  #gwd_classify>ul li{
     padding: 20px 0;
   }
   .heisanjiao{
