@@ -139,6 +139,9 @@ input, button, select, textarea{
 .red{
   color: #ea3333;
 }
+.mj{
+  color: #ea3333;
+}
 .gray{
   color: #999;
 }
@@ -278,7 +281,7 @@ hr{
   overflow: hidden;
   background-color: #fff;
   position: fixed;
-  top: 2px;
+  top: 0;
   z-index: 99;
 }
 #gwd_classify>ul li{
@@ -352,6 +355,8 @@ hr{
   width: 66px;
   text-align: left;
   overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
   margin: 5px 0;
 }
 .number{
@@ -410,6 +415,22 @@ hr{
 }
 #gwd_index .container{
   padding: 0 10px;
+}
+#nodata{
+  background-color: #fff;
+  margin-top: 100px;
+}
+#nodata>div{
+  width: 20%;
+  margin: 0 auto;
+  padding: 20px;
+}
+#nodata>div>img{
+  width: 107px;
+}
+#nodata>.gwd_p_big{
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 .col-gwd-2-39{
   border-radius: 6px;
@@ -687,7 +708,7 @@ hr{
   width: 100%;
   background-color: #fff;
   position: fixed;
-  top: 2px;
+  top: 0;
   z-index: 20;
 }
 #gwd_top_shadow{
@@ -769,7 +790,7 @@ hr{
   text-align: left;
   line-height: 150%;
   margin-top: 16px;
-  color: red;
+  color: #ea3333;
 }
 .indetail{
   margin-top: 32px;
@@ -815,21 +836,28 @@ hr{
   float: left;
   width: 50%;
   margin: 10px 0;
+  text-align: left;
 }
 .relatedtag>div:last-child>a>span{
   color: #aaa;
   padding: 4px 8px;
   border: 1px solid #aaa;
   border-radius: 14px;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
 }
 .relateddetail{
   border: 1px solid #333;
   border-radius: 8px;
   margin-top: 20px;
 }
-.relateddetail>div:first-child{
+.rfdiv{
   text-align: left;
   padding: 10px 10px;
+}
+.toright{
+  float: right;
 }
 .relateddetail>div:last-child{
   margin-bottom: 6px;
@@ -863,6 +891,40 @@ hr{
   left: 10px;
   top: 10px;
 }
+#gwd_copyhint{
+  display: none;
+  width: 75%;
+  padding: 30px 8px;
+  background-color: #fff;
+  border-radius: 8px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  position: fixed;
+  left: 15%;
+  z-index: 99;
+}
+#gwd_share{
+  display: none;
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+}
+#gwd_share>.row{
+  padding-bottom: 10px;
+}
+.s_top{
+  padding: 20px 0;
+}
+.shareimg{
+  padding: 10px 15px;
+}
+.s_bottom{
+  background-color: #e3e3e3;
+  padding: 20px 0;
+}
 #gwd_buy{
   width: 100%;
   background-color: #ea3333;
@@ -874,4 +936,146 @@ hr{
 #gwd_buy_shadow{
   height: 52px;
 }
+@media (min-width: 768px) {
+  #gwd_top_shadow{
+    height: 58px;
+  }
+  #gwd_top span{
+    padding: 14px 0;
+  }
+  #formore{
+    top: -30px;
+  }
+  #threesss{
+    right: 6%;
+    top: 40px;
+  }
+  #gwd_content .container{
+    padding: 0;
+  }
+  #gwd_buy_shadow{
+    height: 60px;
+  }
+}
+@media (min-width: 992px) {
+  #gwd_top_shadow{
+    height: 66px;
+  }
+  #gwd_top span{
+    padding: 16px 0;
+  }
+  #formore{
+    top: -28px;
+  }
+  #threesss{
+    right: 7%;
+    top: 47px;
+  }
+  #gwd_buy_shadow{
+    height: 62px;
+  }
+}
+@media (min-width: 1200px) {
+  #gwd_top_shadow{
+    height: 72px;
+  }
+  #gwd_top span{
+    padding: 18px 0;
+  }
+  #formore{
+    top: -26px;
+  }
+  #threesss{
+    right: 7%;
+    top: 53px;
+  }
+  #gwd_buy_shadow{
+    height: 64px;
+  }
+}
+@media (min-width: 1600px) {
+  #gwd_top_shadow{
+    height: 80px;
+  }
+  #gwd_top span{
+    padding: 20px 0;
+  }
+  #formore{
+    top: -24px;
+  }
+  #threesss{
+    right: 8%;
+    top: 61px;
+  }
+  #gwd_buy_shadow{
+    height: 68px;
+  }
+}
 /*=== End Detail ===*/
+
+
+
+/*=== Suggestion ===*/
+#gwd_suggestion{
+  padding: 15px;
+}
+#gwd_suggestion p{
+  font-size: 16px;
+  line-height: 24px;
+  color: black;
+  margin-bottom: 20px;
+}
+#gwd_suggestion textarea{
+  display: block;
+  width: 100%;
+  height: 150px;
+  font-size: 14px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+#gwd_suggestion .hint{
+  height: 26px;
+  width: 100%;
+  color: red;
+  font-size: 14px;
+  overflow: hidden;
+}
+#gwd_suggestion a{
+  display: block;
+  border-radius: 4px;
+  background-color: #ea3333;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 0;
+}
+@media(min-width: 768px){
+  #gwd_suggestion{
+    width: 640px;
+    margin: 0 auto;
+  }
+  #gwd_suggestion p{
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 30px;
+  }
+  #gwd_suggestion textarea{
+    height: 200px;
+    font-size: 24px;
+    border-radius: 8px;
+  }
+  #gwd_suggestion .hint{
+    height: 30px;
+    font-size: 24px;
+  }
+  #gwd_suggestion a{
+    border-radius: 8px;
+    font-size: 30px;
+    padding: 16px 0;
+  }
+}
+/*=== End Suggestion ===*/

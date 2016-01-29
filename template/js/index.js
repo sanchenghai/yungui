@@ -57,6 +57,14 @@ $(function(){
 		}
 	});
 
+	//点击遮罩层统统消失
+	mask.on("click", function(){
+		gcfldiv.hide().siblings("div").hide();
+		$("#gwd_classify>ul .gwd_p_big").removeClass("red");
+		$("#gwd_classify>ul .heisanjiao").removeClass("heisanjiaoactive");
+		$(this).hide();
+	});
+
 });
 
 
