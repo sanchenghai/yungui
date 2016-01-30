@@ -1,4 +1,5 @@
 var loadNow = false;//数据加载中标志
+var bodyscroll = 0;//mask消失时body恢复高度
 
 $(function(){
 	var mask = $(".mask"),
@@ -6,12 +7,15 @@ $(function(){
 		gcfl = $("#gcfl"),
 		gcsc = $("#gcsc"),
 		gcjg = $("#gcjg"),
+		wthimg = $("#wthimg"),
 		gcfldiv = $("#gcfldiv"),
 		gcscdiv = $("#gcscdiv"),
 		gcjgdiv = $("#gcjgdiv"),
 		leftul = $(".leftul"),
 		rightulactive = $(".rightul.active"),
 		rightul = $(".rightul"),
+		gcscful = $("#gcscdiv .col-gwd-2-50:first ul"),
+		gcsclul = $("#gcscdiv .col-gwd-2-50:last ul"),
 		gwd_index = $("#gwd_index .container");//加载数据时的父节点;
 
 	//筛选显示控制
@@ -32,6 +36,15 @@ $(function(){
 	gcsc.on("click", function(){
 		gcscdiv.stop().slideToggle().siblings("div").hide();
 	});
+	/***
+	废弃，修改HTML结构
+	gcscful.on("scroll",function(){
+		gcsclul.scrollTop($(this).scrollTop());
+	});
+	gcsclul.on("scroll",function(){
+		gcscful.scrollTop($(this).scrollTop());
+	});
+	***/
 
 	//价格排序效果
 	gcjg.on("click", function(){
@@ -41,6 +54,17 @@ $(function(){
 			var thisindex = $(this).index();
 			$("#gcjgdiv .rightul").hide().eq(thisindex).show();
 		});
+		var color = $(this).children().children("p").attr("class");
+		var src = wthimg.attr("src");
+		if(color.indexOf("red") > -1){
+			var a = src.split("black");
+			a = a[0] + "red" +a[1];
+			wthimg.attr("src",a);
+		}else{
+			var b = src.split("red");
+			b = b[0] + "black" +b[1];
+			wthimg.attr("src",b);
+		}
 	});
 
 	// 页面滑动效果
@@ -62,7 +86,20 @@ $(function(){
 		gcfldiv.hide().siblings("div").hide();
 		$("#gwd_classify>ul .gwd_p_big").removeClass("red");
 		$("#gwd_classify>ul .heisanjiao").removeClass("heisanjiaoactive");
+		$("body").css({"position":"static"});
+		$(window).scrollTop(bodyscroll);
 		$(this).hide();
+		var color = gcjg.children().children("p").attr("class");
+		var src = wthimg.attr("src");
+		if(color.indexOf("red") > -1){
+			var a = src.split("black");
+			a = a[0] + "red" +a[1];
+			wthimg.attr("src",a);
+		}else{
+			var b = src.split("red");
+			b = b[0] + "black" +b[1];
+			wthimg.attr("src",b);
+		}
 	});
 
 });
@@ -76,17 +113,25 @@ function shaixuanControl(nodes){
 		nodes[i].onclick = function(i){
 			return function(){
 				var windowHeight = $(window).height(),
+					body = $("body"),
 					mask = $(".mask"),
 					gcfl = $("#gcfl"),
 					gcsc = $("#gcsc"),
 					gcjg = $("#gcjg");
+				var beforemaskflag = gcfl.children().children("p").attr("class") + gcsc.children().children("p").attr("class") + gcjg.children().children("p").attr("class");
 				mask.css({"height" : windowHeight});
 				$(this).children().children("p").toggleClass("red").end().children("div").toggleClass("heisanjiaoactive").parent().parent().parent().siblings().children().children().children("p").removeClass("red").end().children("div").removeClass("heisanjiaoactive");
 				var maskflag = gcfl.children().children("p").attr("class") + gcsc.children().children("p").attr("class") + gcjg.children().children("p").attr("class");
+				if(beforemaskflag.indexOf("red") == -1){
+					bodyscroll = $(window).scrollTop() || $(document).scrollTop();
+				}
 				if(maskflag.indexOf("red") > -1){
 					mask.show();
+					body.css({"position":"fixed", "top":-bodyscroll});
 				}else{
 					mask.hide();
+					body.css({"position":"static"});
+					$(window).scrollTop(bodyscroll);
 				}
 			};
 		}(i);

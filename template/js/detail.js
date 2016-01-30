@@ -7,7 +7,9 @@ $(function(){
 		gwd_share = $("#gwd_share"),
 		s_bottom = $(".s_bottom"),
 		inma = $(".inma"),
-		mask = $(".mask");
+		clipsource = $("#clipsource"),
+		clipbutton = $("#clipbutton"),
+		mask = $(".mask");clipsource
 
 	//头部返回上一页
 	goback.on("click", function(){
@@ -28,11 +30,14 @@ $(function(){
 	});
 
 	//需用码提示控制
-	inma.on("click", function(){
-		var windowHeight = $(window).height();
-		mask.css({"height" : windowHeight}).show();
-		gwd_copyhint.css({"top":windowHeight/3}).show();
-	});
+	var zeroclip = new ZeroClipboard(clipbutton[0]);
+	if(zeroclip){
+		inma.on("click", function(){
+			var windowHeight = $(window).height();
+			mask.css({"height" : windowHeight}).show();
+			gwd_copyhint.css({"top":windowHeight/3}).show();
+		});
+	}
 
 	//点击遮罩层，全部消失
 	mask.on("click", function(){

@@ -189,7 +189,7 @@ hr{
   display: none;
   width: 100%;
   height: 200px;
-  background-color: rgba(200,200,200,0.5);
+  background-color: rgba(0,0,0,0.3);
   position: fixed;
   top: 0;
   z-index: 50;
@@ -274,6 +274,16 @@ hr{
 #gwd_classify_shadow{
   height: 62px;
 }
+#wthp{
+  position: relative;
+}
+#wthimg{
+  height: 16px;
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  right: 0;
+}
 #gwd_classify>ul{
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
@@ -302,7 +312,7 @@ hr{
 #gwd_classify>ul li a p{
   display: inline-block;
   text-align: right;
-  max-width: 80%;
+  max-width: 83%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow:ellipsis;
@@ -329,15 +339,15 @@ hr{
   width: 100%;
   background-color: #fff;
   position: fixed;
-  top: 52px;
+  top: 50px;
   z-index: 99;
 }
 #gcfldiv ul, #gcscdiv ul{
-  height: 260px;
+  max-height: 260px;
   overflow: auto;
 }
 #gcjgdiv ul{
-  height: 100px;
+  height: 118px;
   overflow: auto;
 }
 #gcfldiv ul a, #gcscdiv ul a, #gcjgdiv ul a{
@@ -357,14 +367,14 @@ hr{
   overflow: hidden;
   white-space: nowrap;
   text-overflow:ellipsis;
-  margin: 5px 0;
+  margin: 8px 0;
 }
 .number{
   display: inline-block;
   width: 66px;
   text-align: right;
   overflow: hidden;
-  margin: 5px 0;
+  margin: 8px 0;
 }
 .number>span{
   padding: 1px 6px;
@@ -379,17 +389,22 @@ hr{
 .rightul a.active{
   background-color: rgb(221,221,221);
 }
+#gcscdiv ul li{
+  float: left;
+  width: 50%;
+}
 #gcscdiv ul a{
   width: 70%;
   border: 1px solid #eee;
   border-radius: 6px;
-  margin: 10px auto;
-  padding: 9px 0;
+  margin: 4px auto;
+  padding: 4px 0;
 }
 #gcscdiv ul a.active{
   border-color: #ea3333;
 }
 #gcscdiv ul a span{
+  display: none;
   padding-left: 6px;
 }
 .timeleft{
@@ -397,21 +412,21 @@ hr{
   width: 106px;
   text-align: left;
   overflow: hidden;
-  margin: 5px 0;
+  margin: 8px 0;
 }
 .timeright{
   display: inline-block;
   width: 26px;
   text-align: left;
   overflow: hidden;
-  margin: 5px 0;
+  margin: 8px 0;
 }
 .timedetail{
   display: inline-block;
   width: 80%;
   text-align: left;
   overflow: hidden;
-  margin: 5px 0;
+  margin: 8px 0;
 }
 #gwd_index .container{
   padding: 0 10px;
@@ -439,7 +454,7 @@ hr{
 }
 .col-gwd-2-39>span{
   height: 100%;
-  min-height: 100px;
+  min-height: 120px;
   display: inline-block;
   vertical-align: middle;
 }
@@ -473,6 +488,7 @@ hr{
   bottom: 6px;
 }
 .col-gwd-2-61 .mall-time{
+  text-align: right;
   width: 70px;
   right: 10px;
   bottom: 6px;
@@ -491,13 +507,13 @@ hr{
     top: -9px;
   }
   #gcfldiv, #gcscdiv, #gcjgdiv{
-    top: 61px;
+    top: 59px;
   }
   #gcfldiv ul, #gcscdiv ul{
     height: 300px;
   }
   #gcjgdiv ul{
-    height: 120px;
+    height: 138px;
   }
   .name{
     width: 74px;
@@ -548,13 +564,13 @@ hr{
     top: -11px;
   }
   #gcfldiv, #gcscdiv, #gcjgdiv{
-    top: 68px;
+    top: 66px;
   }
   #gcfldiv ul, #gcscdiv ul{
     height: 314px;
   }
   #gcjgdiv ul{
-    height: 126px;
+    height: 144px;
   }
   .name{
     width: 100px;
@@ -602,13 +618,13 @@ hr{
     top: -12px;
   }
   #gcfldiv, #gcscdiv, #gcjgdiv{
-    top: 74px;
+    top: 72px;
   }
   #gcfldiv ul, #gcscdiv ul{
     height: 340px;
   }
   #gcjgdiv ul{
-    height: 130px;
+    height: 148px;
   }
   .name{
     width: 110px;
@@ -656,13 +672,13 @@ hr{
     top: -14px;
   }
   #gcfldiv, #gcscdiv, #gcjgdiv{
-    top: 82px;
+    top: 80px;
   }
   #gcfldiv ul, #gcscdiv ul{
     height: 350px;
   }
   #gcjgdiv ul{
-    height: 140px;
+    height: 158px;
   }
   .name{
     width: 130px;
@@ -720,36 +736,57 @@ hr{
   text-align: center;
 }
 #goback{
-  width: 10%;
+  float: left;
+  width: 15%;
   cursor: pointer;
+  font-weight: bolder;
+  color: #000;
 }
 #gtmiddle{
-  width: 75%;
+  float: left;
+  width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow:ellipsis;
 }
 #formore{
-  width: 10%;
+  float: left;
+  width: 15%;
   cursor: pointer;
-  font-size: 6rem;
+  font-weight: bolder;
+  color: #000;
+}
+#goback img{
+  height: 18px;
   position: absolute;
-  top: -32px;
+  top: 50%;
+  margin-top: -9px;
+  left: 10px;
+}
+#formore img{
+  height: 7px;
+  position: absolute;
+  top: 50%;
+  margin-top: -3px;
+  right: 14px;
 }
 #threesss{
   display: none;
   position: fixed;
-  top: 41px;
-  right: 5%;
+  top: 31px;
+  right: 1%;
   z-index: 30;
 }
 #threesss>div{
   width: 0;
   height: 0;
   border: 8px solid #fff;
-  border-bottom: 8px solid rgba(0,0,0,0.7);
+  border-bottom: 8px solid rgb(76,76,76);
   position: relative;
   left: 70%;
 }
 #threesss>ul{
-  background-color: rgba(0,0,0,0.7);
+  background-color: rgb(76,76,76);
   border-radius: 6px;
 }
 #threesss>ul a{
@@ -772,6 +809,9 @@ hr{
   padding-left: 16px;
   position: relative;
   top: 2px;
+}
+#threesss #showshare{
+  display: none;
 }
 #gwd_topimg{
   width: 100%;
@@ -799,11 +839,14 @@ hr{
 .quan, .ma{
   margin-top: 16px;
 }
+.ma{
+  display: none;
+}
 .quan>div, .ma>div{
   text-align: left;
 }
 .inquan, .inma{
-  margin-top: 10px;
+  margin-top: 15px;
   cursor: pointer;
 }
 .inquan span, .inma span{
@@ -839,6 +882,8 @@ hr{
   text-align: left;
 }
 .relatedtag>div:last-child>a>span{
+  display: inline-block;
+  max-width: 86%;
   color: #aaa;
   padding: 4px 8px;
   border: 1px solid #aaa;
@@ -848,13 +893,14 @@ hr{
   white-space: nowrap;
 }
 .relateddetail{
-  border: 1px solid #333;
+  border: 1px solid #eee;
   border-radius: 8px;
   margin-top: 20px;
 }
 .rfdiv{
   text-align: left;
   padding: 10px 10px;
+  font-weight: bold;
 }
 .toright{
   float: right;
@@ -863,7 +909,7 @@ hr{
   margin-bottom: 6px;
 }
 .relateddetail>div:last-child>a>div{
-  border-top: 1px solid #333;
+  border-top: 1px solid #eee;
 }
 .smalltitle{
   text-align: left;
@@ -873,7 +919,7 @@ hr{
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   position: absolute;
-  top: 10px;
+  top: 4px;
 }
 .smallprice{
   text-align: left;
@@ -883,13 +929,12 @@ hr{
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   position: absolute;
-  bottom: 10px;
+  bottom: 4px;
 }
 .smallmallname{
-  color: #ccc;
+  margin-bottom: 1.8rem;
   position: absolute;
-  left: 10px;
-  top: 10px;
+  bottom: 10px;
 }
 #gwd_copyhint{
   display: none;
@@ -943,11 +988,8 @@ hr{
   #gwd_top span{
     padding: 14px 0;
   }
-  #formore{
-    top: -30px;
-  }
   #threesss{
-    right: 6%;
+    right: 2%;
     top: 40px;
   }
   #gwd_content .container{
@@ -964,11 +1006,8 @@ hr{
   #gwd_top span{
     padding: 16px 0;
   }
-  #formore{
-    top: -28px;
-  }
   #threesss{
-    right: 7%;
+    right: 2%;
     top: 47px;
   }
   #gwd_buy_shadow{
@@ -982,11 +1021,8 @@ hr{
   #gwd_top span{
     padding: 18px 0;
   }
-  #formore{
-    top: -26px;
-  }
   #threesss{
-    right: 7%;
+    right: 3%;
     top: 53px;
   }
   #gwd_buy_shadow{
@@ -1000,11 +1036,8 @@ hr{
   #gwd_top span{
     padding: 20px 0;
   }
-  #formore{
-    top: -24px;
-  }
   #threesss{
-    right: 8%;
+    right: 4%;
     top: 61px;
   }
   #gwd_buy_shadow{
